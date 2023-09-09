@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
+:root {
+  --spacer: 2rem;
+  --p1-color: indigo;
+  --p2-color: coral;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  padding: var(--spacer);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+._players {
+  margin: var(--spacer) 0;
+}
+
+._scoreboard {
+  margin-bottom: var(--spacer);
+
+}
+._scoreboard, ._players {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+._scoreboard ._result, ._players ._player {
+  font-size: calc(var(--spacer)/2);
+  font-weight: bold;
+  padding: calc(var(--spacer)/4);
+  box-shadow: .1rem .2rem 1.5rem #f7f7f7;
+  border-radius: .5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+._scoreboard ._result:nth-child(odd), ._players ._player:nth-child(odd) {
+  /* font-size: calc(var(--spacer)/2);
+  font-weight: bold;   */
+  color: var(--p1-color);
+}
+
+._scoreboard ._result:nth-child(even), ._players ._player:nth-child(even) {
+  /* font-size: calc(var(--spacer)/2);
+  font-weight: bold;   */
+  color: var(--p2-color);
+}
+
+._players ._player {
+  text-transform: uppercase; 
+}
+
+._footer, ._title{
+  text-align: center;
+  font-weight: bold;
+}
+
+._title {
+  font-size: var(--spacer);
+  text-transform: capitalize;
+  background: linear-gradient(to right, var(--p1-color), var(--p2-color) 70%);
+  background-clip: text;
+  color: transparent;
+}
+
+
+._footer {
+  font-size: .9rem;
+}
+
+._matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* padding: 0 calc(var(--spacer)*15); */
+  width: 35%;
+  margin: 0 auto;
+  position: relative;
+
+}
+
+._square:not(:nth-child( 6 ) ~ div) {
+  border-bottom: 0;
+}
+
+._square:not(:nth-child( 3 ) ~ div) {
+  border-top: 0;
+}
+
+._square:nth-child( 3n+1 ) {
+  border-left: 0;
+}
+
+._square:nth-child( 6 ) ~ div {
+  border-bottom: 0;
+}
+
+._square {
+  border: 5px solid black;
+  border-right: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--spacer)*2);
+}
+
+._winning-line {
+  width: .5rem;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(to bottom, var(--p1-color), var(--p2-color) 70%);
+  left: 50%;
+  top: 0;
+  transform: rotate(0deg);
 }
