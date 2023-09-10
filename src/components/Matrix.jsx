@@ -35,8 +35,8 @@ function Matrix(props) {
             if (grid_to_verify[j] !== '' && grid_to_verify[j] === grid_to_verify[j+3] && grid_to_verify[j+3] === grid_to_verify[j+6]) {
                 setWinningLine((oldWinning)=>({...oldWinning, show: true, deg:0, left: [16, 50, 83][j], top: 0}));
                 return {
-                    winner: grid_to_verify[i] === game.player1.letter ? game.player1 : game.player2,
-                    winner_id: grid_to_verify[i] === game.player1.letter ? 0: 1,
+                    winner: grid_to_verify[j] === game.player1.letter ? game.player1 : game.player2,
+                    winner_id: grid_to_verify[j] === game.player1.letter ? 0: 1,
                 }
             }
             j += 1;
@@ -46,15 +46,15 @@ function Matrix(props) {
         if (grid_to_verify[0] !== '' && grid_to_verify[0] === grid_to_verify[4] && grid_to_verify[4] === grid_to_verify[8]) {
             setWinningLine((oldWinning)=>({...oldWinning, show: true, deg:-45, left: 50, top: 0}));
             return {
-                winner: grid_to_verify[i] === game.player1.letter ? game.player1 : game.player2,
-                winner_id: grid_to_verify[i] === game.player1.letter ? 0: 1,
+                winner: grid_to_verify[0] === game.player1.letter ? game.player1 : game.player2,
+                winner_id: grid_to_verify[0] === game.player1.letter ? 0: 1,
             }
         }
         if (grid_to_verify[2] !== '' && grid_to_verify[2] === grid_to_verify[4] && grid_to_verify[4] === grid_to_verify[6]) {
             setWinningLine((oldWinning)=>({...oldWinning, show: true, deg:45, left: 50, top: 0}));
             return {
-                    winner: grid_to_verify[i] === game.player1.letter ? game.player1 : game.player2,
-                    winner_id: grid_to_verify[i] === game.player1.letter ? 0: 1,
+                    winner: grid_to_verify[2] === game.player1.letter ? game.player1 : game.player2,
+                    winner_id: grid_to_verify[2] === game.player1.letter ? 0: 1,
                 }
         }
 
