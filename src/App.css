@@ -109,7 +109,4 @@ body {
   height: 100%;
   position: absolute;
   background: linear-gradient(to bottom, var(--p1-color), var(--p2-color) 70%);
-  left: 50%;
-  top: 0;
-  transform: rotate(0deg);
 }
