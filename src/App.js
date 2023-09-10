@@ -24,17 +24,23 @@ function App() {
         },
         current_turn: 0,
         still_playing: true,
+        winner: 0,
+        grid: Array(9).fill(''),
     });
+    // const [grid, setGrid] = useState(Array(9).fill(''));
     const { width, height } = useWindowSize();
 
     return (
         <div className="App">
             {!game.still_playing ? (
+              <>
                 <Confetti width={width} height={height} />
+                <PopupWinner game={game} setGame={setGame} />
+              </>
             ) : (
                 <></>
             )}
-            <PopupWinner />
+            
             <Title />
             <Score
                 score_p1={game.player1.score}

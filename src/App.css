@@ -81,6 +81,12 @@ body {
     position: relative;
 }
 
+@media screen and (max-width: 768px) {
+    ._matrix {
+        width: 90%;
+    }
+}
+
 ._square:not(:nth-child(6) ~ div) {
     border-bottom: 0;
 }
@@ -136,12 +142,12 @@ body {
 ._popup_content {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0%;
+    transform: translate(+50%, -50%);
     background-color: #fff;
     padding: var(--spacer);
     border-radius: 0.5rem;
-    min-width: 50%;
+    min-width: fit-content;
 }
 
 ._popup_content_header_winner {
@@ -164,7 +170,11 @@ body {
     font-weight: 600;
     display: block;
     margin: 0 auto;
-    width: 50%;
+    width: fit-content;
+}
+
+._button span {
+    white-space: no-wrap;
 }
 
 ._button:hover {
