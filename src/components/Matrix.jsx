@@ -59,7 +59,6 @@ function Matrix(props) {
         }
 
         if (newGrid.every((element) => element !== '')) {
-            // setGame((old_value)=>({...old_value, still_playing: false, winner: 2}));
             
             return {
                 winner: '',
@@ -77,7 +76,6 @@ function Matrix(props) {
     const handle_turn = (index) => {
         
         setGame((old_value)=>{
-            // console.log(old_value);
             if ( old_value.still_playing && old_value.grid[index] === '' ) {
                 
                 const newGrid = [...old_value.grid]; 
@@ -93,7 +91,6 @@ function Matrix(props) {
 
                 if (winner !== '') {
                     still_playing = false;
-                    // console.log(still_playing);
                     if (winner_id === 0) {
                         player1 = {...old_value.player1, score: old_value.player1.score+1};
                     }
@@ -110,32 +107,6 @@ function Matrix(props) {
             }
             return old_value;
         });
-
-        // if ( game.still_playing && game.grid[index] === '' ) {
-        //     setGame((old_value)=>{
-        //         const newGrid = [...old_value.grid]; 
-        //         newGrid[index] = current_player.letter; 
-
-        //         winner = verify_winner(newGrid).winner;
-        //         winner_id = verify_winner(newGrid).winner_id;
-
-        //         return {...old_value, current_turn: 1-old_value.current_turn, grid: newGrid}
-        //     });
-        //     // console.log('winner');
-        //     // console.log(winner);
-        //     // console.log('winner_id');
-        //     // console.log(winner_id);
-            
-        //     if (winner !== '') {
-        //         setGame((old_value)=>({...old_value, still_playing: false, winner: winner_id}));
-        //         if (winner_id === 0) {
-        //             setGame((old_value)=>({...old_value, player1: {...old_value.player1, score: old_value.player1.score+1}}));
-        //         }
-        //         else {
-        //             setGame((old_value)=>({...old_value, player2: {...old_value.player2, score: old_value.player2.score+1}}));
-        //         }
-        //     }
-        // }
     }
 
     const [current_player, setCurrent_player] = useState([game.player1, game.player2][game.current_turn])

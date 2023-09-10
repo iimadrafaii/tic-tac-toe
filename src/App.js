@@ -27,7 +27,6 @@ function App() {
         winner: 0,
         grid: Array(9).fill(''),
     });
-    // const [grid, setGrid] = useState(Array(9).fill(''));
     const { width, height } = useWindowSize();
 
     return (
